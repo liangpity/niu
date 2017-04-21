@@ -1,7 +1,9 @@
-package com.xiongmai.lb.test;
+package com.lb.test;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.xiongmai.lb.test.R;
 
 public class MainActivity extends AppCompatActivity {
 

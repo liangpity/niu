@@ -1,4 +1,4 @@
-package com.xiongmai.lb.test;
+package com.lb.test;
 
 import org.litepal.crud.DataSupport;
 
@@ -24,11 +24,11 @@ public class City extends DataSupport {
     }
 
     public int getCityCide() {
-        return cityCide;
+        return cityCode;
     }
 
-    public void setCityCide(int cityCide) {
-        this.cityCide = cityCide;
+    public void setCityCode(int cityCide) {
+        this.cityCode = cityCide;
     }
 
     public int getProviceId() {
@@ -41,7 +41,7 @@ public class City extends DataSupport {
 
     private int id;
     private String CityName;
-    private int cityCide;
+    private int cityCode;
     private int proviceId;
 
 

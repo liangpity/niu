@@ -1,4 +1,4 @@
-package com.xiongmai.lb.test;
+package com.lb.test;
 
 import org.litepal.crud.DataSupport;
 

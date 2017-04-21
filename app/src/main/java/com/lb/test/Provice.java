@@ -1,4 +1,4 @@
-package com.xiongmai.lb.test;
+package com.lb.test;
 
 import org.litepal.crud.DataSupport;
 
@@ -7,13 +7,6 @@ import org.litepal.crud.DataSupport;
  */
 
 public class Provice extends DataSupport {
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getProviceName() {
         return proviceName;
@@ -31,7 +24,6 @@ public class Provice extends DataSupport {
         this.proviceCode = proviceCode;
     }
 
-    private int id;
     private String proviceName;
     private int proviceCode;
 
