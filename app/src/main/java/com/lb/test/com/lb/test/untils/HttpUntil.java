@@ -9,7 +9,7 @@ import okhttp3.Request;
 
 public class HttpUntil {
 
-    public static void sebdOkhttpRequest(String address , okhttp3.Callback callback){
+    public static void sendOkhttpRequest(String address , okhttp3.Callback callback){
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(address).build();
 

@@ -32,7 +32,7 @@ public class Utility {
                 }
                 return true;
             }catch (Exception e){
-
+                e.printStackTrace();
             }
 
         }
@@ -57,7 +57,7 @@ public class Utility {
                 }
                 return true;
             }catch (Exception e){
-
+                e.printStackTrace();
             }
 
         }
@@ -77,12 +77,12 @@ public class Utility {
                     County county = new County();
                     county.setCityId(cityId);
                     county.setCountyName(jsonObject.getString("name"));
-                    county.setWearthId(jsonObject.getString("wearther_id"));
+                    county.setWearthId(jsonObject.getString("weather_id"));
                     county.save();
                 }
                 return true;
             }catch (Exception e){
-
+                e.printStackTrace();
             }
 
         }

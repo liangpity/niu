@@ -23,7 +23,7 @@ public class City extends DataSupport {
         CityName = cityName;
     }
 
-    public int getCityCide() {
+    public int getCityCode() {
         return cityCode;
     }
 
