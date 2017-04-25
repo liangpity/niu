@@ -2,9 +2,12 @@ package com.lb.test.com.lb.test.untils;
 
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.lb.test.City;
 import com.lb.test.County;
 import com.lb.test.Provice;
+import com.weather.lb.com.entity.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -89,5 +92,31 @@ public class Utility {
         return false;
     }
 
+    /**
+     * 解析天气信息
+     */
+    public static Weather handlerWeatherRespose(String respose){
+        try {
+            JSONObject  jsonObject = new JSONObject(respose);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherInfo = jsonArray.getJSONObject(0).toString();
+            Weather weather = new Gson().fromJson(weatherInfo , new TypeToken<Weather>(){}.getType());
+            if(weather != null)
+                return weather;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  null;
+    }
+
+    public static  String getImgUrl(String json){
+        try{
+            JSONObject jsonObject = new JSONObject(json);
+            String url = jsonObject.getString("url");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/back_ground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/title"
+                android:layout_marginTop="20dp"
+                />
+            <include
+                layout="@layout/current_weather"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                layout="@layout/air_quality"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                layout="@layout/forecast"/>
+
+            <include
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                layout="@layout/suggestion"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.lb.test;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.lb.test.com.lb.test.untils.HttpUntil;
 import com.lb.test.com.lb.test.untils.Utility;
+import com.weather.lb.com.view.WeatherActivity;
 import com.xiongmai.lb.test.R;
 
 import org.litepal.crud.DataSupport;
@@ -53,6 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        queryProvinces();
+    }
+
+    @Override
     public void onClick(View v) {
         if(v.getId() == mQuery.getId()){
             if(currentLevel == 0){
@@ -86,7 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             selectCity = cityList.get(position);
             queryCounty();
         } else if(currentLevel == 3){
-            Toast.makeText(this , "选择了 ： " +countyList.get(position).getCountyName() , Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this , WeatherActivity.class);
+            intent.putExtra("WEATHER_ID" , countyList.get(position).getCountyName());
+            startActivity(intent);
         }
     }
 
