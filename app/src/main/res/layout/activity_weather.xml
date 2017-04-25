@@ -1,53 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
 
     <ImageView
         android:id="@+id/back_ground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
-    <ScrollView
-
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/draw_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:overScrollMode="never">
-        <LinearLayout
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <include
+            android:layout_height="match_parent">
+
+            <ScrollView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                layout="@layout/title"
-                android:layout_marginTop="20dp"
-                />
-            <include
-                layout="@layout/current_weather"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                layout="@layout/air_quality"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                layout="@layout/forecast"/>
+                android:overScrollMode="never"
+                android:scrollbars="none">
 
-            <include
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginTop="20dp"
-                layout="@layout/suggestion"/>
-        </LinearLayout>
-    </ScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
 
+                    <include
+                        layout="@layout/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp" />
 
+                    <include
+                        layout="@layout/current_weather"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp" />
+
+                    <include
+                        layout="@layout/air_quality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp" />
+
+                    <include
+                        layout="@layout/forecast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp" />
+
+                    <include
+                        layout="@layout/suggestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp" />
+                </LinearLayout>
+            </ScrollView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+        <fragment
+            android:id="@+id/choose_city"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:name="com.weather.lb.com.view.CitySeleteFragment"
+            tools:layout="@layout/fragment_select_city" />
+    </android.support.v4.widget.DrawerLayout>
 </FrameLayout>
