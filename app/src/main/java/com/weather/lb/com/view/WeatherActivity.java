@@ -214,4 +214,9 @@ public class WeatherActivity extends Activity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
