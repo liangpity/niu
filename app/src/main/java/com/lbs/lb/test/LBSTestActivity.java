@@ -20,6 +20,7 @@ import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
 import com.xiongmai.lb.test.R;
 
@@ -73,6 +74,7 @@ public class LBSTestActivity extends AppCompatActivity {
             requsetLocation();
         }
         baiduMap = mapView.getMap();
+        baiduMap.setMyLocationEnabled(true);
     }
 
     @Override
@@ -103,6 +105,7 @@ public class LBSTestActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         locationClient.stop();
+        baiduMap.setMyLocationEnabled(false);
         mapView.onDestroy();
     }
 
@@ -169,6 +172,10 @@ public class LBSTestActivity extends AppCompatActivity {
             baiduMap.animateMapStatus(update);
             isFirstLoc = false;
         }
-
+        MyLocationData.Builder builder = new MyLocationData.Builder();
+        builder.latitude(location.getLatitude());
+        builder.longitude(location.getLongitude());
+        MyLocationData myLocationData = builder.build();
+        baiduMap.setMyLocationData(myLocationData);
     }
 }
